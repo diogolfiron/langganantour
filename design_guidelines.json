@@ -1,0 +1,144 @@
+{
+  "theme": "LIGHT",
+  "archetype": "4 (Swiss & High-Contrast - Corporate Trust Variant)",
+  "emotional_tone": "Professional, Safe, Trustworthy, Elegant, and Inviting",
+  "brand": {
+    "name": "Nusantara Travel",
+    "whatsapp": "+62822-2824-7676",
+    "core_promise": "Solusi Rental Mobil & Tour Terpercaya untuk Perjalanan Anda"
+  },
+  "typography": {
+    "headings": {
+      "family": "Outfit",
+      "weights": ["500", "700"],
+      "usage_rules": "Use tracking-tight for all headings. Never center unless explicitly necessary. Maintain strong hierarchy."
+    },
+    "body": {
+      "family": "Manrope",
+      "weights": ["400", "500", "600"],
+      "usage_rules": "Use leading-relaxed for body copy to enhance readability."
+    },
+    "scale": {
+      "h1": "text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight",
+      "h2": "text-3xl sm:text-4xl font-semibold tracking-tight",
+      "h3": "text-xl sm:text-2xl font-semibold",
+      "h4": "text-lg sm:text-xl font-medium",
+      "body": "text-base",
+      "small_label": "text-xs font-bold uppercase tracking-[0.2em]"
+    }
+  },
+  "colors": {
+    "background": {
+      "primary": "#FFFFFF",
+      "secondary": "#F8FAFC",
+      "tertiary": "#F1F5F9"
+    },
+    "text": {
+      "primary": "#0F172A",
+      "secondary": "#475569",
+      "tertiary": "#64748B",
+      "inverse": "#FFFFFF"
+    },
+    "brand": {
+      "primary": "#005CE6",
+      "primary_hover": "#0047B3",
+      "dark_blue": "#0A2045",
+      "whatsapp": "#25D366",
+      "whatsapp_hover": "#1EBE5A"
+    },
+    "borders": {
+      "subtle": "rgba(15, 23, 42, 0.08)",
+      "strong": "rgba(15, 23, 42, 0.15)"
+    }
+  },
+  "layout_and_spacing": {
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "section_padding": "py-20 md:py-32",
+    "generous_spacing": "Always favor p-8 or p-12 inside cards. Avoid cramming elements.",
+    "border_radius": "rounded-2xl for main cards, rounded-full for buttons and badges",
+    "grid_strategy": "Use asymmetric 'Bento' grids (cols-1 md:cols-12) for the 'Services' section to create visual interest. Standard grids (cols-1 md:cols-3) for Cars and Tour Packages."
+  },
+  "surface_strategies": {
+    "navbar": "Glassmorphism: bg-white/80 backdrop-blur-xl border-b border-slate-200/50. Sticky to top with z-50.",
+    "cards": "Solid background (white or light gray) with a subtle 1px border (border-slate-200). On hover, elevate slightly (-translate-y-1) and add soft ambient shadow (shadow-[0_8px_30px_rgb(0,0,0,0.04)]).",
+    "hero_overlay": "Gradient overlay from left to right: bg-gradient-to-r from-[#0A2045]/90 via-[#0A2045]/60 to-transparent. Never use a flat black blanket overlay.",
+    "footer": "Dark Theme for contrast: bg-[#0A2045] with white text."
+  },
+  "animations": {
+    "scroll": "Use framer-motion for smooth, staggered fade-up entrances. Incorporate Lenis for smooth browser scrolling if possible.",
+    "interactions": "Hover states on all interactive elements. For images in cards (Cars, Destinations), apply group-hover:scale-105 with duration-700 ease-out.",
+    "buttons": "Active state: scale-95 transition-transform."
+  },
+  "icons": {
+    "library": "@phosphor-icons/react",
+    "style": "Use 'regular' or 'duotone' weight for a premium, polished look."
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#005CE6] text-white hover:bg-[#0047B3] px-6 py-3 rounded-full font-semibold transition-all shadow-sm",
+      "secondary": "bg-transparent text-[#0F172A] border border-slate-300 hover:border-[#0F172A] px-6 py-3 rounded-full font-semibold transition-all",
+      "whatsapp": "fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center"
+    },
+    "navbar": "Sticky header. Left: Brand Logo/Text. Center: Hidden on mobile, flex on desktop with gap-8 (Home, Tentang, Rental, Tour, Galeri, Kontak). Right: CTA Booking button.",
+    "hero": "Full viewport height or min-h-[85vh]. Left-aligned text content. Staggered reveal. High quality SUV background image.",
+    "services_bento": "4 items. Item 1 (Rental Harian): col-span-full md:col-span-8 row-span-2. Item 2 (Paket Tour): col-span-full md:col-span-4. etc.",
+    "car_card": "Vertical layout. Top: Image (h-48 object-cover rounded-t-2xl). Body: Title, Price (prominent), 3x inline specs (Seats, Transmission, Fuel with icons). Bottom: Sewa Sekarang CTA.",
+    "tour_card": "Image focused. Text overlaid or clean bottom section. Must have a hover-zoom effect on the image.",
+    "why_us": "4 column grid. Large phosphor duotone icons, bold heading, short description.",
+    "gallery": "Grid layout with no gaps or very tight gaps, images scale on hover.",
+    "testimonials": "Use a slider/carousel for cards containing 5-star icons, user text, and name. Clean white background for cards.",
+    "testing": "All interactive elements MUST include data-testid. E.g., data-testid='booking-cta-hero', data-testid='nav-link-tour', data-testid='whatsapp-float'."
+  },
+  "media": {
+    "hero": {
+      "primary_bg": "https://images.unsplash.com/photo-1763443536611-6fa59a9a4ed9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NjV8MHwxfHNlYXJjaHwxfHxwcmVtaXVtJTIwc3V2JTIwcm9hZCUyMHRyaXAlMjBzdW5zZXR8ZW58MHx8fHwxNzc2MTUyMDYwfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Luxury SUV parked on rooftop at sunset. Use this as the main hero background."
+    },
+    "services": [
+      {
+        "type": "rental_harian",
+        "url": "https://images.unsplash.com/photo-1759177628407-ce741877ef10?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NjV8MHwxfHNlYXJjaHw0fHxwcmVtaXVtJTIwc3V2JTIwcm9hZCUyMHRyaXAlMjBzdW5zZXR8ZW58MHx8fHwxNzc2MTUyMDYwfDA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "type": "airport_transfer",
+        "url": "https://images.unsplash.com/photo-1558222209-134191edfe0d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDV8MHwxfHNlYXJjaHw0fHxhaXJwb3J0JTIwdHJhbnNmZXIlMjBjaGF1ZmZldXJ8ZW58MHx8fHwxNzc2MTUyMDcxfDA&ixlib=rb-4.1.0&q=85"
+      }
+    ],
+    "cars": [
+      {
+        "name": "Premium SUV",
+        "url": "https://images.unsplash.com/photo-1597220323807-32d922780926?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NjV8MHwxfHNlYXJjaHwyfHxwcmVtaXVtJTIwc3V2JTIwcm9hZCUyMHRyaXAlMjBzdW5zZXR8ZW58MHx8fHwxNzc2MTUyMDYwfDA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "name": "Luxury Sedan",
+        "url": "https://images.unsplash.com/photo-1771775751121-3091d79073d4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDV8MHwxfHNlYXJjaHwxfHxhaXJwb3J0JTIwdHJhbnNmZXIlMjBjaGF1ZmZldXJ8ZW58MHx8fHwxNzc2MTUyMDcxfDA&ixlib=rb-4.1.0&q=85"
+      }
+    ],
+    "destinations": [
+      {
+        "name": "Bali Tropical",
+        "url": "https://images.unsplash.com/photo-1761154919797-c0fc58e464df?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwyfHxiYWxpJTIwdHJvcGljYWwlMjBkZXN0aW5hdGlvbiUyMHRyYXZlbHxlbnwwfHx8fDE3NzYxNTIwNjB8MA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "name": "Cultural Heritage",
+        "url": "https://images.unsplash.com/photo-1761521456079-1b513aec0add?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHw0fHxiYWxpJTIwdHJvcGljYWwlMjBkZXN0aW5hdGlvbiUyMHRyYXZlbHxlbnwwfHx8fDE3NzYxNTIwNjB8MA&ixlib=rb-4.1.0&q=85"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1750425110677-5f3c3503f220?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHwzfHxoYXBweSUyMHRvdXJpc3QlMjBncm91cCUyMHRvdXJ8ZW58MHx8fHwxNzc2MTUyMDcxfDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHwyfHxoYXBweSUyMHRvdXJpc3QlMjBncm91cCUyMHRvdXJ8ZW58MHx8fHwxNzc2MTUyMDcxfDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1566371485880-f0ac8c484435?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHw0fHxoYXBweSUyMHRvdXJpc3QlMjBncm91cCUyMHRvdXJ8ZW58MHx8fHwxNzc2MTUyMDcxfDA&ixlib=rb-4.1.0&q=85"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Install and use @phosphor-icons/react for icons.",
+    "Implement scroll animations using framer-motion (fade up, stagger effects).",
+    "Ensure the sticky navbar has a backdrop blur and a z-index of 50.",
+    "Implement the 'floating WhatsApp' button as fixed positioned with its proper green brand color (#25D366).",
+    "Build a clean bento-grid for the Services (Layanan Kami) instead of symmetric squares.",
+    "Ensure the hero overlay is a dark blue gradient to transparent, NOT a solid black opacity. This ensures text readability while showcasing the image.",
+    "Do NOT use 'Inter' font. Apply 'Outfit' for headings and 'Manrope' for body text via Google Fonts import.",
+    "Use standard semantic HTML sections (section, nav, footer) alongside pure Tailwind classes for maximum control over layouts.",
+    "Add 'data-testid' to all buttons, nav links, and interactive cards for testing."
+  ]
+}
