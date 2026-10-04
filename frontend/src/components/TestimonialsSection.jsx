@@ -17,26 +17,20 @@ export default function TestimonialsSection() {
   }, []);
 
   const next = () => {
-    if (testimonials.length) {
-      setCurrent((p) => (p + 1) % testimonials.length);
-    }
+    if (testimonials.length) setCurrent((p) => (p + 1) % testimonials.length);
   };
-
   const prev = () => {
-    if (testimonials.length) {
+    if (testimonials.length)
       setCurrent((p) => (p - 1 + testimonials.length) % testimonials.length);
-    }
   };
 
   useEffect(() => {
     if (!testimonials.length) return;
-
-    const t = setInterval(() => {
-      setCurrent((p) => (p + 1) % testimonials.length);
-    }, 5000);
-
+    const t = setInterval(next, 5000);
     return () => clearInterval(t);
   }, [testimonials.length]);
+
+  if (!testimonials.length) return null;
 
   return (
     <section
