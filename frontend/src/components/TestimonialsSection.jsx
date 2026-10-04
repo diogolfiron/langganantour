@@ -9,6 +9,7 @@ export default function TestimonialsSection() {
   const [testimonials, setTestimonials] = useState([]);
   const [current, setCurrent] = useState(0);
 
+  // Ambil data testimonials dari backend
   useEffect(() => {
     axios
       .get(`${API}/testimonials`)
@@ -16,17 +17,28 @@ export default function TestimonialsSection() {
       .catch(console.error);
   }, []);
 
+  // Next manual
   const next = () => {
-    if (testimonials.length) setCurrent((p) => (p + 1) % testimonials.length);
-  };
-  const prev = () => {
-    if (testimonials.length)
-      setCurrent((p) => (p - 1 + testimonials.length) % testimonials.length);
+    if (testimonials.length) {
+      setCurrent((p) => (p + 1) % testimonials.length);
+    }
   };
 
+  // Previous manual
+  const prev = () => {
+    if (testimonials.length) {
+      setCurrent((p) => (p - 1 + testimonials.length) % testimonials.length);
+    }
+  };
+
+  // Auto slide setiap 5 detik
   useEffect(() => {
     if (!testimonials.length) return;
-    const t = setInterval(next, 5000);
+
+    const t = setInterval(() => {
+      setCurrent((p) => (p + 1) % testimonials.length);
+    }, 5000);
+
     return () => clearInterval(t);
   }, [testimonials.length]);
 
@@ -58,6 +70,7 @@ export default function TestimonialsSection() {
             className="bg-white rounded-2xl p-8 md:p-12 text-center shadow-sm"
             data-testid="testimonial-card"
           >
+            {/* Rating */}
             <div className="flex justify-center gap-1 mb-5">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star
@@ -72,19 +85,25 @@ export default function TestimonialsSection() {
                 />
               ))}
             </div>
+
+            {/* Testimonial */}
             <p className="text-[#44403C] text-lg leading-relaxed italic">
               "{testimonials[current].text}"
             </p>
+
+            {/* User */}
             <div className="mt-6">
               <p className="font-heading font-semibold text-[#44403C]">
                 {testimonials[current].name}
               </p>
+
               <p className="text-[#78716C] text-sm">
                 {testimonials[current].role}
               </p>
             </div>
           </motion.div>
 
+          {/* Navigation */}
           <div className="flex justify-center gap-3 mt-8">
             <button
               onClick={prev}
@@ -93,16 +112,20 @@ export default function TestimonialsSection() {
             >
               <CaretLeft size={18} weight="bold" />
             </button>
+
             <div className="flex items-center gap-2">
               {testimonials.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
                   data-testid={`testimonial-dot-${i}`}
-                  className={`w-2 h-2 rounded-full transition-all ${i === current ? "bg-[#D97706] w-6" : "bg-gray-300"}`}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    i === current ? "bg-[#D97706] w-6" : "bg-gray-300"
+                  }`}
                 />
               ))}
             </div>
+
             <button
               onClick={next}
               data-testid="testimonial-next"
