@@ -1,6 +1,7 @@
 import { WhatsappLogo } from "@phosphor-icons/react";
 
-const WA_LINK = "https://api.whatsapp.com/send?phone=6282228247676&text=Halo%20Langganan%20Tour,%20saya%20butuh%20informasi.";
+const WA_LINK =
+  "https://api.whatsapp.com/send?phone=6285235622400&text=Halo%20Langganan%20Tour,%20saya%20butuh%20informasi.";
 
 export default function WhatsAppFloat() {
   return (

@@ -2,11 +2,15 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { WhatsappLogo } from "@phosphor-icons/react";
 
-const WA_LINK = "https://api.whatsapp.com/send?phone=6282228247676&text=Halo%20Langganan%20Tour,%20saya%20ingin%20merencanakan%20perjalanan.";
+const WA_LINK =
+  "https://api.whatsapp.com/send?phone=6285235622400&text=Halo%20Langganan%20Tour,%20saya%20ingin%20merencanakan%20perjalanan.";
 
 export default function ContactCTA() {
   return (
-    <section data-testid="contact-cta" className="relative py-20 md:py-28 overflow-hidden">
+    <section
+      data-testid="contact-cta"
+      className="relative py-20 md:py-28 overflow-hidden"
+    >
       <div className="absolute inset-0">
         <img
           src="https://images.pexels.com/photos/20261011/pexels-photo-20261011.jpeg?auto=compress&cs=tinysrgb&w=1400"
@@ -26,7 +30,8 @@ export default function ContactCTA() {
             Siap untuk petualangan berikutnya?
           </h2>
           <p className="text-white/80 mt-4 text-lg max-w-xl mx-auto">
-            Rencanakan perjalanan impian Anda di Banyuwangi bersama Langganan Tour.
+            Rencanakan perjalanan impian Anda di Banyuwangi bersama Langganan
+            Tour.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a

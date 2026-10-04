@@ -2,11 +2,15 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { WhatsappLogo, CalendarCheck } from "@phosphor-icons/react";
 
-const WA_LINK = "https://api.whatsapp.com/send?phone=6282228247676&text=Halo%20Banyuwangi%20Private%20Driver,%20saya%20ingin%20booking.";
+const WA_LINK =
+  "https://api.whatsapp.com/send?phone=6285235622400&text=Halo%20Banyuwangi%20Private%20Driver,%20saya%20ingin%20booking.";
 
 export default function CTASection() {
   return (
-    <section data-testid="cta-section" className="py-20 md:py-32 bg-[#0A2045] relative overflow-hidden">
+    <section
+      data-testid="cta-section"
+      className="py-20 md:py-32 bg-[#0A2045] relative overflow-hidden"
+    >
       {/* Decorative circles */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#005CE6]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#005CE6]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
@@ -23,7 +27,8 @@ export default function CTASection() {
             Siap Menemani Perjalanan Anda?
           </h2>
           <p className="text-white/60 mt-5 max-w-xl mx-auto leading-relaxed text-lg">
-            Hubungi kami sekarang untuk mendapatkan penawaran terbaik. Kami siap melayani 24/7.
+            Hubungi kami sekarang untuk mendapatkan penawaran terbaik. Kami siap
+            melayani 24/7.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
