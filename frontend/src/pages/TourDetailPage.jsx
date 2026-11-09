@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -14,45 +14,49 @@ import {
   ListChecks,
   Warning,
 } from "@phosphor-icons/react";
-import axios from "axios";
+import { TOURS } from "@/data/staticData";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
-const WA_BASE = "https://api.whatsapp.com/send?phone=6285235622400&text=";
+const WA_BASE = "https://api.whatsapp.com/send?phone=6282228247676&text=";
 
 export default function TourDetailPage() {
   const { id } = useParams();
-  const [tour, setTour] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const tour = TOURS.find((t) => t.id === id);
   const [activeTab, setActiveTab] = useState("itinerary");
-
-  useEffect(() => {
-    axios
-      .get(`${API}/tours/${id}`)
-      .then((res) => {
-        setTour(res.data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, [id]);
-
-  if (loading) {
-    return (
-      <div className="pt-[72px] min-h-screen flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-[#D97706] border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
 
   if (!tour) {
     return (
-      <div className="pt-[72px] min-h-screen flex flex-col items-center justify-center gap-4">
-        <p className="text-[#78716C] text-lg">Paket wisata tidak ditemukan.</p>
-        <Link
-          to="/tour"
-          className="text-[#D97706] font-semibold hover:underline"
-        >
-          Kembali ke daftar paket
-        </Link>
+      <div className="pt-[72px] min-h-screen">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <h2 className="font-heading text-2xl font-bold text-[#44403C]">
+            Paket wisata tidak ditemukan
+          </h2>
+          <p className="text-[#78716C] mt-2">
+            Pilih salah satu paket wisata di bawah ini:
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 max-w-4xl mx-auto">
+            {TOURS.map((t) => (
+              <Link
+                key={t.id}
+                to={`/tour/${t.id}`}
+                className="flex items-center gap-3 p-4 bg-white border border-gray-200 rounded-xl hover:border-[#D97706] hover:shadow-md transition-all text-left"
+              >
+                <img
+                  src={t.image}
+                  alt={t.name}
+                  className="w-16 h-16 rounded-lg object-cover shrink-0"
+                />
+                <div>
+                  <p className="font-heading font-semibold text-[#44403C] text-sm">
+                    {t.name}
+                  </p>
+                  <p className="text-[#D97706] font-bold text-sm mt-0.5">
+                    {t.price}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }
@@ -143,7 +147,7 @@ export default function TourDetailPage() {
       <section className="bg-gray-50 py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2">
-            {tour.destinations.map((d) => (
+            {(tour.destinations || []).map((d) => (
               <span
                 key={d}
                 className="inline-flex items-center gap-1.5 text-sm text-[#44403C] bg-white border border-gray-200 px-3 py-1.5 rounded-full"
@@ -186,7 +190,7 @@ export default function TourDetailPage() {
             animate={{ opacity: 1, y: 0 }}
             data-testid="itinerary-content"
           >
-            <div className="space-y-8">
+            <div className="space-y-6">
               {tour.detailed_itinerary &&
                 tour.detailed_itinerary.map((day, i) => (
                   <div
@@ -195,26 +199,26 @@ export default function TourDetailPage() {
                     data-testid={`itinerary-day-${i}`}
                   >
                     <div className="absolute left-0 top-0 w-4 h-4 rounded-full bg-[#D97706] -translate-x-[9px]" />
-                    <div className="bg-white rounded-xl border border-gray-100 p-6 shadow-sm">
-                      <div className="flex items-center gap-3 mb-4">
-                        <span className="bg-[#D97706] text-white text-xs font-bold px-3 py-1 rounded-full">
-                          {day.day}
-                        </span>
-                        <h3 className="font-heading font-bold text-[#44403C] text-lg">
-                          {day.title}
-                        </h3>
-                      </div>
-                      <ul className="space-y-2.5">
-                        {day.activities.map((act, j) => (
-                          <li
+                    <div className="bg-white rounded-xl border border-gray-100 p-5 shadow-sm">
+                      <span className="bg-[#D97706] text-white text-xs font-bold px-3 py-1 rounded-full">
+                        {day.day}
+                      </span>
+                      <div className="flex flex-wrap gap-2 mt-3">
+                        {(day.destinations || []).map((dest, j) => (
+                          <span
                             key={j}
-                            className="flex items-start gap-3 text-sm text-[#57534E]"
+                            className="inline-flex items-center gap-1.5 text-sm text-[#44403C] bg-[#FEF3C7] px-3 py-1.5 rounded-full"
+                            data-testid={`itinerary-dest-${i}-${j}`}
                           >
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#D97706] mt-2 shrink-0" />
-                            {act}
-                          </li>
+                            <MapPin
+                              size={14}
+                              weight="bold"
+                              className="text-[#D97706]"
+                            />
+                            {dest}
+                          </span>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -236,7 +240,7 @@ export default function TourDetailPage() {
                   Termasuk dalam Paket
                 </h3>
                 <ul className="space-y-3">
-                  {tour.facilities_included.map((f, i) => (
+                  {(tour.facilities_included || []).map((f, i) => (
                     <li
                       key={i}
                       className="flex items-start gap-3 text-sm text-green-700"
@@ -258,7 +262,7 @@ export default function TourDetailPage() {
                   Termasuk
                 </h3>
                 <ul className="space-y-3">
-                  {tour.facilities_excluded.map((f, i) => (
+                  {(tour.facilities_excluded || []).map((f, i) => (
                     <li
                       key={i}
                       className="flex items-start gap-3 text-sm text-red-700"
@@ -295,7 +299,7 @@ export default function TourDetailPage() {
                 Syarat & Ketentuan
               </h3>
               <ol className="space-y-3 list-decimal list-inside">
-                {tour.terms.map((t, i) => (
+                {(tour.terms || []).map((t, i) => (
                   <li
                     key={i}
                     className="text-sm text-amber-800 leading-relaxed"

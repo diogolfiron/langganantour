@@ -14,7 +14,7 @@ export default function WhyUsSection() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1640399562300-83bd313ef9a9?w=1400&q=80"
+          src="/images/why-us-bg.jpg"
           alt="Banyuwangi landscape"
           className="w-full h-full object-cover"
         />

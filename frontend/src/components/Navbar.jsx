@@ -3,8 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { List, X } from "@phosphor-icons/react";
 
-const LOGO_URL =
-  "https://customer-assets-cm19k8pv.emergentagent.net/job_rental-tour-bandung/artifacts/lg3pghzz_Navy%20And%20Grey%20Classic%20Circle%20Business%20Consulting%20Logo%20%281%29.png";
+const LOGO_URL = "https://customer-assets-cm19k8pv.emergentagent.net/job_rental-tour-bandung/artifacts/lg3pghzz_Navy%20And%20Grey%20Classic%20Circle%20Business%20Consulting%20Logo%20%281%29.png";
 
 const NAV_LINKS = [
   { label: "Home", to: "/" },
@@ -14,8 +13,7 @@ const NAV_LINKS = [
   { label: "Hubungi Kami", to: "/kontak" },
 ];
 
-const WA_LINK =
-  "https://api.whatsapp.com/send?phone=6285235622400&text=Halo%20Langganan%20Tour,%20saya%20ingin%20booking.";
+const WA_LINK = "https://api.whatsapp.com/send?phone=6282228247676&text=Halo%20Langganan%20Tour,%20saya%20ingin%20booking.";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,19 +35,11 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-[72px]">
-          <Link
-            to="/"
-            className="flex items-center gap-2.5"
-            data-testid="nav-logo"
-          >
+          <Link to="/" className="flex items-center gap-2.5" data-testid="nav-logo">
             <img src={LOGO_URL} alt="Langganan Tour" className="h-12 w-auto" />
             <div className="leading-tight hidden sm:block">
-              <span className="font-heading font-bold text-[#D97706] text-base block">
-                LANGGANAN
-              </span>
-              <span className="font-heading font-medium text-[#44403C] text-[10px] tracking-[0.15em] block -mt-0.5">
-                TOUR & TRAVEL
-              </span>
+              <span className="font-heading font-bold text-[#D97706] text-base block">LANGGANAN</span>
+              <span className="font-heading font-medium text-[#44403C] text-[10px] tracking-[0.15em] block -mt-0.5">TOUR & TRAVEL</span>
             </div>
           </Link>
 
@@ -58,7 +48,7 @@ export default function Navbar() {
               <Link
                 key={link.to}
                 to={link.to}
-                data-testid={`nav-link-${link.to === "/" ? "home" : link.to.replace("/", "")}`}
+                data-testid={`nav-link-${link.to === '/' ? 'home' : link.to.replace('/', '')}`}
                 className={`px-4 py-2 text-sm font-semibold rounded-lg transition-colors ${
                   location.pathname === link.to
                     ? "text-[#D97706] bg-[#D97706]/5"
@@ -85,11 +75,7 @@ export default function Navbar() {
               className="lg:hidden p-2"
               onClick={() => setMobileOpen(!mobileOpen)}
             >
-              {mobileOpen ? (
-                <X size={24} className="text-[#44403C]" />
-              ) : (
-                <List size={24} className="text-[#44403C]" />
-              )}
+              {mobileOpen ? <X size={24} className="text-[#44403C]" /> : <List size={24} className="text-[#44403C]" />}
             </button>
           </div>
         </div>

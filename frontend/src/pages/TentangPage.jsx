@@ -26,7 +26,7 @@ export default function TentangPage() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <img src="https://images.unsplash.com/photo-1559273278-31d91743cbb2?w=700&q=80" alt="Kawah Ijen"
+              <img src="/images/tours/kawah-ijen.jpg" alt="Kawah Ijen"
                 className="rounded-2xl w-full h-[420px] object-cover" />
             </motion.div>
           </div>

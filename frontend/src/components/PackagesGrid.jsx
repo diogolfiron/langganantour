@@ -1,19 +1,10 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import axios from "axios";
-
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+import { TOURS } from "@/data/staticData";
 
 export default function PackagesGrid() {
-  const [tours, setTours] = useState([]);
-
-  useEffect(() => {
-    axios.get(`${API}/tours`).then((res) => setTours(res.data)).catch(console.error);
-  }, []);
-
-  const featured = tours.filter(t => ["3H2M", "2H1M", "One Day", "Custom", "Open Trip"].includes(t.category));
-  const display = featured.length > 0 ? featured.slice(0, 5) : tours.slice(0, 5);
+  const featured = TOURS.filter(t => ["3H2M", "2H1M", "One Day", "Custom", "Open Trip"].includes(t.category));
+  const display = featured.length > 0 ? featured.slice(0, 5) : TOURS.slice(0, 5);
 
   return (
     <section data-testid="packages-section" className="py-16 md:py-24 bg-white">
@@ -30,23 +21,11 @@ export default function PackagesGrid() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {display.map((tour, i) => (
-            <motion.div
-              key={tour.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              data-testid={`package-card-${i}`}
-            >
-              <Link
-                to={`/tour/${tour.id}`}
-                className="block group relative h-64 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
-              >
-                <img
-                  src={tour.image}
-                  alt={tour.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+            <motion.div key={tour.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ delay: i * 0.1 }} data-testid={`package-card-${i}`}>
+              <Link to={`/tour/${tour.id}`}
+                className="block group relative h-64 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                <img src={tour.image} alt={tour.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
                   <h3 className="font-heading font-bold text-white text-lg">{tour.name}</h3>
