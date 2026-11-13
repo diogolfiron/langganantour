@@ -16,7 +16,7 @@ import {
 } from "@phosphor-icons/react";
 import { TOURS } from "@/data/staticData";
 
-const WA_BASE = "https://api.whatsapp.com/send?phone=6282228247676&text=";
+const WA_BASE = "https://api.whatsapp.com/send?phone=6285235622400&text=";
 
 export default function TourDetailPage() {
   const { id } = useParams();

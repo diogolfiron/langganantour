@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
-const WA_BASE = "https://api.whatsapp.com/send?phone=6282228247676&text=";
+const WA_BASE = "https://api.whatsapp.com/send?phone=6285235622400&text=";
 
 export default function CarsSection() {
   const [cars, setCars] = useState([]);

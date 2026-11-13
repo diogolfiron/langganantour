@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { WhatsappLogo } from "@phosphor-icons/react";
 
-const WA_LINK = "https://api.whatsapp.com/send?phone=6282228247676&text=Halo%20Langganan%20Tour,%20saya%20ingin%20merencanakan%20perjalanan.";
+const WA_LINK = "https://api.whatsapp.com/send?phone=6285235622400&text=Halo%20Langganan%20Tour,%20saya%20ingin%20merencanakan%20perjalanan.";
 
 export default function ContactCTA() {
   return (

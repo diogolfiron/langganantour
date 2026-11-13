@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { label: "Hubungi Kami", to: "/kontak" },
 ];
 
-const WA_LINK = "https://api.whatsapp.com/send?phone=6282228247676&text=Halo%20Langganan%20Tour,%20saya%20ingin%20booking.";
+const WA_LINK = "https://api.whatsapp.com/send?phone=6285235622400&text=Halo%20Langganan%20Tour,%20saya%20ingin%20booking.";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
